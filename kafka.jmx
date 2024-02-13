@@ -1,0 +1,948 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.5">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Test Plan" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="test_max_length" elementType="Argument">
+            <stringProp name="Argument.name">test_max_length</stringProp>
+            <stringProp name="Argument.value">1d1h</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <url>true</url>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+      <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="Aggregate Report" enabled="false">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <url>true</url>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+      <BackendListener guiclass="BackendListenerGui" testclass="BackendListener" testname="Backend Listener" enabled="false">
+        <elementProp name="arguments" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" enabled="true">
+          <collectionProp name="Arguments.arguments">
+            <elementProp name="influxdbMetricsSender" elementType="Argument">
+              <stringProp name="Argument.name">influxdbMetricsSender</stringProp>
+              <stringProp name="Argument.value">org.apache.jmeter.visualizers.backend.influxdb.HttpMetricsSender</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="influxdbUrl" elementType="Argument">
+              <stringProp name="Argument.name">influxdbUrl</stringProp>
+              <stringProp name="Argument.value">http://10.139.152.21:8086/write?db=popd</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="application" elementType="Argument">
+              <stringProp name="Argument.name">application</stringProp>
+              <stringProp name="Argument.value">popd1</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="measurement" elementType="Argument">
+              <stringProp name="Argument.name">measurement</stringProp>
+              <stringProp name="Argument.value">jmeter</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="summaryOnly" elementType="Argument">
+              <stringProp name="Argument.name">summaryOnly</stringProp>
+              <stringProp name="Argument.value">false</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="samplersRegex" elementType="Argument">
+              <stringProp name="Argument.name">samplersRegex</stringProp>
+              <stringProp name="Argument.value">.*</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="percentiles" elementType="Argument">
+              <stringProp name="Argument.name">percentiles</stringProp>
+              <stringProp name="Argument.value">90;95;99</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="testTitle" elementType="Argument">
+              <stringProp name="Argument.name">testTitle</stringProp>
+              <stringProp name="Argument.value">Test name</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="eventTags" elementType="Argument">
+              <stringProp name="Argument.name">eventTags</stringProp>
+              <stringProp name="Argument.value"></stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+          </collectionProp>
+        </elementProp>
+        <stringProp name="classname">org.apache.jmeter.visualizers.backend.influxdb.InfluxdbBackendListenerClient</stringProp>
+        <stringProp name="QUEUE_SIZE">1</stringProp>
+      </BackendListener>
+      <hashTree/>
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Redis Configuration" enabled="false">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="redis_host" elementType="Argument">
+            <stringProp name="Argument.name">redis_host</stringProp>
+            <stringProp name="Argument.value">127.0.0.1</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">localhost</stringProp>
+          </elementProp>
+          <elementProp name="redis_port" elementType="Argument">
+            <stringProp name="Argument.name">redis_port</stringProp>
+            <stringProp name="Argument.value">6379</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </Arguments>
+      <hashTree/>
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Redis Configuration LOCAL" enabled="true">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="redis_host" elementType="Argument">
+            <stringProp name="Argument.name">redis_host</stringProp>
+            <stringProp name="Argument.value">localhost</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">172.24.133.108</stringProp>
+          </elementProp>
+          <elementProp name="redis_port" elementType="Argument">
+            <stringProp name="Argument.name">redis_port</stringProp>
+            <stringProp name="Argument.value">6379</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </Arguments>
+      <hashTree/>
+      <SetupThreadGroup guiclass="SetupThreadGroupGui" testclass="SetupThreadGroup" testname="UC01_ConfigParams" enabled="true">
+        <stringProp name="TestPlan.comments">Инициализация переменных</stringProp>
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+      </SetupThreadGroup>
+      <hashTree>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="UC01_T01_mapSent" enabled="true">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">true</stringProp>
+          <stringProp name="script">import java.time.LocalDateTime;
+import java.util.Collections;
+import java.util.AbstractMap; //сама добавила
+import java.util.LinkedList;  //сама добавила
+import java.util.Map;
+import java.util.List;
+
+
+/* Времена отправки (ID,LocalDateTime) */
+//Map&lt;String,LocalDateTime&gt; mapSent=Collections.synchronizedMap(new LinkedHashMap&lt;&gt;()); 
+//props.put(&quot;MAP_SENT&quot;,mapSent); 
+
+Map&lt;String,Long&gt; mapSent = Collections.synchronizedMap(new LinkedHashMap&lt;&gt;()); 
+props.put(&quot;MAP_SENT&quot;, mapSent); 
+
+/* Очередь на обработку из kafka (ID,timestamp) */
+LinkedList&lt;AbstractMap.SimpleEntry&lt;String,Long&gt;&gt; receivedQueue = new LinkedList&lt;&gt;();
+props.put(&quot;QUEUE_KAFKA_RECEIVED&quot;, receivedQueue);  //создание переменной, &quot;получена из очереди&quot;
+
+/* Очередь на обработку из kafka_1 (ID,timestamp) */
+LinkedList&lt;String&gt; receivedQueue_1 = new LinkedList&lt;&gt;();
+props.put(&quot;QUEUE_KAFKA_RECEIVED_1&quot;, receivedQueue_1);  //создание переменной, &quot;получена из очереди_1&quot;
+
+
+</stringProp>
+          <stringProp name="TestPlan.comments">Инициализация переменных</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="UC01_T02_StartTest" enabled="true">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">false</stringProp>
+          <stringProp name="script">props.put(&quot;TEST_STATUS&quot;,&quot;STARTED&quot;); 
+props.put(&quot;KAFKA_STATUS&quot;,&quot;STARTED&quot;);
+//props.put(&quot;KAFKA_STATUS&quot;,&quot;NOT_STARTED&quot;);</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+        <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Flow Control Action" enabled="false">
+          <intProp name="ActionProcessor.action">1</intProp>
+          <intProp name="ActionProcessor.target">0</intProp>
+          <stringProp name="ActionProcessor.duration">0</stringProp>
+        </TestAction>
+        <hashTree>
+          <ConstantThroughputTimer guiclass="TestBeanGUI" testclass="ConstantThroughputTimer" testname="Constant Throughput Timer" enabled="true">
+            <doubleProp>
+              <name>throughput</name>
+              <value>1.0</value>
+              <savedValue>0.0</savedValue>
+            </doubleProp>
+            <intProp name="calcMode">0</intProp>
+          </ConstantThroughputTimer>
+          <hashTree/>
+        </hashTree>
+      </hashTree>
+      <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="UC02_Producer Ultimate Thread Group" enabled="false">
+        <collectionProp name="ultimatethreadgroupdata">
+          <collectionProp name="-1167248633">
+            <stringProp name="48811">160</stringProp>
+            <stringProp name="0">0</stringProp>
+            <stringProp name="53430">120</stringProp>
+            <stringProp name="46795509">3840</stringProp>
+            <stringProp name="48">0</stringProp>
+          </collectionProp>
+          <collectionProp name="-1262235521">
+            <stringProp name="1629">160</stringProp>
+            <stringProp name="0">720</stringProp>
+            <stringProp name="53430">120</stringProp>
+            <stringProp name="46795509">3120</stringProp>
+            <stringProp name="48">0</stringProp>
+          </collectionProp>
+          <collectionProp name="-809104593">
+            <stringProp name="1629">160</stringProp>
+            <stringProp name="0">1440</stringProp>
+            <stringProp name="53430">120</stringProp>
+            <stringProp name="46795509">2400</stringProp>
+            <stringProp name="48">0</stringProp>
+          </collectionProp>
+          <collectionProp name="-6497574">
+            <stringProp name="1629">160</stringProp>
+            <stringProp name="0">2160</stringProp>
+            <stringProp name="53430">120</stringProp>
+            <stringProp name="46795509">1680</stringProp>
+            <stringProp name="48">0</stringProp>
+          </collectionProp>
+          <collectionProp name="150588447">
+            <stringProp name="1629">160</stringProp>
+            <stringProp name="0">2880</stringProp>
+            <stringProp name="53430">120</stringProp>
+            <stringProp name="46795509">960</stringProp>
+            <stringProp name="48">0</stringProp>
+          </collectionProp>
+          <collectionProp name="973235199">
+            <stringProp name="1629">160</stringProp>
+            <stringProp name="0">3600</stringProp>
+            <stringProp name="53430">120</stringProp>
+            <stringProp name="46795509">240</stringProp>
+            <stringProp name="48">0</stringProp>
+          </collectionProp>
+        </collectionProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <intProp name="LoopController.loops">-1</intProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+      </kg.apc.jmeter.threads.UltimateThreadGroup>
+      <hashTree>
+        <OnceOnlyController guiclass="OnceOnlyControllerGui" testclass="OnceOnlyController" testname="Once Only Controller" enabled="true"/>
+        <hashTree>
+          <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Flow Control Action" enabled="true">
+            <intProp name="ActionProcessor.action">1</intProp>
+            <intProp name="ActionProcessor.target">0</intProp>
+            <stringProp name="ActionProcessor.duration">2000</stringProp>
+          </TestAction>
+          <hashTree>
+            <ConstantThroughputTimer guiclass="TestBeanGUI" testclass="ConstantThroughputTimer" testname="Constant Throughput Timer" enabled="true">
+              <intProp name="calcMode">0</intProp>
+              <doubleProp>
+                <name>throughput</name>
+                <value>60.0</value>
+                <savedValue>0.0</savedValue>
+              </doubleProp>
+            </ConstantThroughputTimer>
+            <hashTree/>
+          </hashTree>
+          <com.bft.jmeter.kafka.config.KafkaProducerConfig guiclass="TestBeanGUI" testclass="com.bft.jmeter.kafka.config.KafkaProducerConfig" testname="KafkaProducerConfig-NT" enabled="true">
+            <stringProp name="acksNumber">1</stringProp>
+            <stringProp name="avroSchemaLocation"></stringProp>
+            <stringProp name="batchSize">16384</stringProp>
+            <stringProp name="clientId">Jmeter-Producer-popd</stringProp>
+            <collectionProp name="extraConfigs"/>
+            <boolProp name="isSsl">false</boolProp>
+            <stringProp name="kafkaBrokers">10.139.177.7:9092</stringProp>
+            <stringProp name="kafkaSslKeystore"></stringProp>
+            <stringProp name="kafkaSslKeystorePassword"></stringProp>
+            <stringProp name="kafkaSslTruststore"></stringProp>
+            <stringProp name="kafkaSslTruststorePassword"></stringProp>
+            <stringProp name="serializerKey">org.apache.kafka.common.serialization.StringSerializer</stringProp>
+            <stringProp name="serializerValue">org.apache.kafka.common.serialization.StringSerializer</stringProp>
+            <stringProp name="TestPlan.comments">Для ФТ : srv-ft-unsi-ads-01.bft.local:9092</stringProp>
+          </com.bft.jmeter.kafka.config.KafkaProducerConfig>
+          <hashTree/>
+        </hashTree>
+        <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="Counter" enabled="true">
+          <stringProp name="CounterConfig.start">1</stringProp>
+          <stringProp name="CounterConfig.end">1000000000000000</stringProp>
+          <stringProp name="CounterConfig.incr">1</stringProp>
+          <stringProp name="CounterConfig.name">counter</stringProp>
+          <stringProp name="CounterConfig.format">1000000000000</stringProp>
+          <boolProp name="CounterConfig.per_user">false</boolProp>
+        </CounterConfig>
+        <hashTree/>
+        <com.bft.jmeter.kafka.sampler.KafkaProducerSampler guiclass="TestBeanGUI" testclass="com.bft.jmeter.kafka.sampler.KafkaProducerSampler" testname="UC02_T02_Выполнение ПА" enabled="true">
+          <stringProp name="kafkaMessage">{
+  &quot;kuvdNo&quot;: &quot;${counter}&quot;,
+  &quot;exclude&quot;: true,
+  &quot;fileLink&quot;: &quot;${fileLink}&quot;
+}</stringProp>
+          <stringProp name="kafkaMessageKey">RealtySA_${__P(uuid1,)}</stringProp>
+          <stringProp name="kafkaTopic">popd-sa-request</stringProp>
+          <collectionProp name="messageHeaders">
+            <elementProp name="" elementType="com.bft.jmeter.kafka.utils.VariableSettings">
+              <stringProp name="headerKey">traceKey</stringProp>
+              <stringProp name="headerValue">${__P(uuid3,)}</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="com.bft.jmeter.kafka.utils.VariableSettings">
+              <stringProp name="headerKey">requestType</stringProp>
+              <stringProp name="headerValue">RealtySA</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="com.bft.jmeter.kafka.utils.VariableSettings">
+              <stringProp name="headerKey">requestId</stringProp>
+              <stringProp name="headerValue">${__P(uuid3,)}</stringProp>
+            </elementProp>
+          </collectionProp>
+          <stringProp name="partitionString"></stringProp>
+          <stringProp name="TestPlan.comments">queryRecords_${__P(uuid1,)}</stringProp>
+        </com.bft.jmeter.kafka.sampler.KafkaProducerSampler>
+        <hashTree>
+          <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="JSR223_putUUID" enabled="true">
+            <stringProp name="cacheKey">false</stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="script">import java.util.UUID;
+import java.lang.*;
+
+
+UUID uuid1 = UUID.randomUUID();
+vars.putObject(&quot;uuid1&quot;, uuid1);
+props.put(&quot;uuid1&quot;,vars.get(&quot;uuid1&quot;));
+
+
+UUID uuid3 = UUID.randomUUID();
+vars.putObject(&quot;uuid3&quot;, uuid3);
+props.put(&quot;uuid3&quot;,vars.get(&quot;uuid3&quot;));
+
+
+//log.info(&quot;uuid1 = &quot; + uuid1);</stringProp>
+            <stringProp name="scriptLanguage">groovy</stringProp>
+          </JSR223PreProcessor>
+          <hashTree/>
+        </hashTree>
+        <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Flow Control Action" enabled="true">
+          <intProp name="ActionProcessor.action">1</intProp>
+          <intProp name="ActionProcessor.target">0</intProp>
+          <stringProp name="ActionProcessor.duration">0</stringProp>
+        </TestAction>
+        <hashTree>
+          <ConstantThroughputTimer guiclass="TestBeanGUI" testclass="ConstantThroughputTimer" testname="Constant Throughput Timer" enabled="true">
+            <doubleProp>
+              <name>throughput</name>
+              <value>60.0</value>
+              <savedValue>0.0</savedValue>
+            </doubleProp>
+            <intProp name="calcMode">0</intProp>
+          </ConstantThroughputTimer>
+          <hashTree/>
+        </hashTree>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="UC02_Producer" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">500</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">10</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+      </ThreadGroup>
+      <hashTree>
+        <OnceOnlyController guiclass="OnceOnlyControllerGui" testclass="OnceOnlyController" testname="Once Only Controller" enabled="true"/>
+        <hashTree>
+          <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Flow Control Action" enabled="true">
+            <intProp name="ActionProcessor.action">1</intProp>
+            <intProp name="ActionProcessor.target">0</intProp>
+            <stringProp name="ActionProcessor.duration">2000</stringProp>
+          </TestAction>
+          <hashTree>
+            <ConstantThroughputTimer guiclass="TestBeanGUI" testclass="ConstantThroughputTimer" testname="Constant Throughput Timer" enabled="true">
+              <intProp name="calcMode">0</intProp>
+              <doubleProp>
+                <name>throughput</name>
+                <value>60.0</value>
+                <savedValue>0.0</savedValue>
+              </doubleProp>
+            </ConstantThroughputTimer>
+            <hashTree/>
+          </hashTree>
+          <com.bft.jmeter.kafka.config.KafkaProducerConfig guiclass="TestBeanGUI" testclass="com.bft.jmeter.kafka.config.KafkaProducerConfig" testname="KafkaProducerConfig-NT" enabled="true">
+            <stringProp name="acksNumber">1</stringProp>
+            <stringProp name="avroSchemaLocation"></stringProp>
+            <stringProp name="batchSize">16384</stringProp>
+            <stringProp name="clientId">Jmeter-Producer-popd</stringProp>
+            <collectionProp name="extraConfigs"/>
+            <boolProp name="isSsl">false</boolProp>
+            <stringProp name="kafkaBrokers">10.139.177.7:9092</stringProp>
+            <stringProp name="kafkaSslKeystore"></stringProp>
+            <stringProp name="kafkaSslKeystorePassword"></stringProp>
+            <stringProp name="kafkaSslTruststore"></stringProp>
+            <stringProp name="kafkaSslTruststorePassword"></stringProp>
+            <stringProp name="serializerKey">org.apache.kafka.common.serialization.StringSerializer</stringProp>
+            <stringProp name="serializerValue">org.apache.kafka.common.serialization.StringSerializer</stringProp>
+            <stringProp name="TestPlan.comments">Для ФТ : srv-ft-unsi-ads-01.bft.local:9092</stringProp>
+          </com.bft.jmeter.kafka.config.KafkaProducerConfig>
+          <hashTree/>
+        </hashTree>
+        <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Flow Control Action" enabled="true">
+          <intProp name="ActionProcessor.action">1</intProp>
+          <intProp name="ActionProcessor.target">0</intProp>
+          <stringProp name="ActionProcessor.duration">0</stringProp>
+        </TestAction>
+        <hashTree>
+          <ConstantThroughputTimer guiclass="TestBeanGUI" testclass="ConstantThroughputTimer" testname="Constant Throughput Timer" enabled="true">
+            <doubleProp>
+              <name>throughput</name>
+              <value>60.0</value>
+              <savedValue>0.0</savedValue>
+            </doubleProp>
+            <intProp name="calcMode">0</intProp>
+          </ConstantThroughputTimer>
+          <hashTree/>
+        </hashTree>
+        <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="Counter" enabled="true">
+          <stringProp name="CounterConfig.start">1</stringProp>
+          <stringProp name="CounterConfig.end">1000000000000000</stringProp>
+          <stringProp name="CounterConfig.incr">1</stringProp>
+          <stringProp name="CounterConfig.name">counter</stringProp>
+          <stringProp name="CounterConfig.format">1000000000000</stringProp>
+          <boolProp name="CounterConfig.per_user">false</boolProp>
+        </CounterConfig>
+        <hashTree/>
+        <com.bft.jmeter.kafka.sampler.KafkaProducerSampler guiclass="TestBeanGUI" testclass="com.bft.jmeter.kafka.sampler.KafkaProducerSampler" testname="UC02_T02_Выполнение ПА" enabled="true">
+          <stringProp name="kafkaMessage">{
+  &quot;kuvdNo&quot;: &quot;${counter}&quot;,
+  &quot;exclude&quot;: true,
+  &quot;fileLink&quot;: &quot;${fileLink}&quot;
+}</stringProp>
+          <stringProp name="kafkaMessageKey">RealtySA_${__P(uuid1,)}</stringProp>
+          <stringProp name="kafkaTopic">popd-sa-request</stringProp>
+          <collectionProp name="messageHeaders">
+            <elementProp name="" elementType="com.bft.jmeter.kafka.utils.VariableSettings">
+              <stringProp name="headerKey">traceKey</stringProp>
+              <stringProp name="headerValue">${__P(uuid3,)}</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="com.bft.jmeter.kafka.utils.VariableSettings">
+              <stringProp name="headerKey">requestType</stringProp>
+              <stringProp name="headerValue">RealtySA</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="com.bft.jmeter.kafka.utils.VariableSettings">
+              <stringProp name="headerKey">requestId</stringProp>
+              <stringProp name="headerValue">${__P(uuid3,)}</stringProp>
+            </elementProp>
+          </collectionProp>
+          <stringProp name="partitionString"></stringProp>
+          <stringProp name="TestPlan.comments">queryRecords_${__P(uuid1,)}</stringProp>
+        </com.bft.jmeter.kafka.sampler.KafkaProducerSampler>
+        <hashTree>
+          <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="JSR223_putUUID" enabled="true">
+            <stringProp name="cacheKey">false</stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="script">import java.util.UUID;
+import java.lang.*;
+
+
+UUID uuid1 = UUID.randomUUID();
+vars.putObject(&quot;uuid1&quot;, uuid1);
+props.put(&quot;uuid1&quot;,vars.get(&quot;uuid1&quot;));
+
+
+UUID uuid3 = UUID.randomUUID();
+vars.putObject(&quot;uuid3&quot;, uuid3);
+props.put(&quot;uuid3&quot;,vars.get(&quot;uuid3&quot;));
+
+
+//log.info(&quot;uuid1 = &quot; + uuid1);</stringProp>
+            <stringProp name="scriptLanguage">groovy</stringProp>
+          </JSR223PreProcessor>
+          <hashTree/>
+        </hashTree>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="UC03_Consumer_1" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <intProp name="LoopController.loops">-1</intProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">10</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+      </ThreadGroup>
+      <hashTree>
+        <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Настройки сценария" enabled="true">
+          <collectionProp name="Arguments.arguments">
+            <elementProp name="kafka_server_url" elementType="Argument">
+              <stringProp name="Argument.name">kafka_server_url</stringProp>
+              <stringProp name="Argument.value">10.139.177.7:9092</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+              <stringProp name="Argument.desc">URL Kafka</stringProp>
+            </elementProp>
+          </collectionProp>
+        </Arguments>
+        <hashTree/>
+        <OnceOnlyController guiclass="OnceOnlyControllerGui" testclass="OnceOnlyController" testname="UC03_T01_Kafka_Consumer_Props_1" enabled="true"/>
+        <hashTree>
+          <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="UC03_T01_Kafka_Consumer_Props_1" enabled="true">
+            <stringProp name="scriptLanguage">groovy</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="script">import java.io.IOException;
+import java.nio.ByteBuffer;
+import java.util.HashMap;
+import java.util.Map;
+import org.apache.avro.Schema;
+import org.apache.avro.generic.GenericDatumReader;
+import org.apache.avro.generic.GenericRecord;
+import org.apache.avro.io.DatumReader;
+import org.apache.avro.io.Decoder;
+import org.apache.avro.io.DecoderFactory;
+import org.apache.kafka.common.errors.SerializationException;
+import org.apache.kafka.common.serialization.Deserializer;
+import org.apache.kafka.clients.consumer.KafkaConsumer;
+import org.apache.kafka.clients.consumer.ConsumerRecord;
+import org.apache.kafka.clients.consumer.ConsumerRecords;
+import java.time.Duration;
+
+
+    
+
+Properties propsGR = new Properties();
+propsGR.put(&quot;bootstrap.servers&quot;, &quot;${kafka_server_url}&quot;);
+//propsGR.put(&quot;group.id&quot;, &quot;${groupID}&quot;);
+propsGR.put(&quot;group.id&quot;, &quot;test_nt_consumer_rq&quot;); //изменила на test_nt_consumer_rq
+propsGR.put(&quot;enable.auto.commit&quot;, &quot;true&quot;);
+propsGR.put(&quot;auto.commit.interval.ms&quot;, &quot;100&quot;);
+propsGR.put(&quot;key.deserializer&quot;, &quot;org.apache.kafka.common.serialization.StringDeserializer&quot;);
+propsGR.put(&quot;value.deserializer&quot;, &quot;org.apache.kafka.common.serialization.StringDeserializer&quot;);
+//propsGR.put(&quot;value.deserializer&quot;, &quot;org.apache.kafka.common.serialization.ByteArrayDeserializer&quot;);
+//propsGR.put(&quot;key.deserializer&quot;, AvroDeserializer);
+//propsGR.put(&quot;value.deserializer&quot;, AvroDeserializer);
+//propsGR.put(&quot;SCHEMA&quot;, schema ); //добавлено
+
+KafkaConsumer&lt;GenericRecord, GenericRecord&gt; consumer = new KafkaConsumer&lt;&gt;(propsGR);
+consumer.subscribe(Arrays.asList(&quot;popd-sa-request&quot;));
+ConsumerRecords&lt;GenericRecord, GenericRecord&gt; records = consumer.poll(Duration.ofMillis(3000));
+vars.putObject(&quot;GR_consumer_rs&quot;, consumer);
+vars.put(&quot;myVar&quot;, 0.toString());
+Thread thread = Thread.currentThread();
+vars.put(&quot;User&quot;, thread.getName());
+
+
+
+</stringProp>
+          </JSR223Sampler>
+          <hashTree/>
+        </hashTree>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="UC03_T02_Kafka_Consumer_1" enabled="true">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">true</stringProp>
+          <stringProp name="script">import org.apache.kafka.clients.consumer.KafkaConsumer;
+import org.apache.kafka.clients.consumer.ConsumerRecord;
+import org.apache.kafka.clients.consumer.ConsumerRecords;
+import org.apache.avro.generic.GenericRecord;
+import java.time.Duration;
+import java.time.LocalDateTime;
+import java.nio.charset.Charset;
+import java.util.Date;
+
+
+/* Получаем значение kafkaReceivedQueue из Иницилизации переменных */
+Queue &lt;AbstractMap.SimpleEntry&lt;String, LocalDateTime&gt;&gt; kafkaReceivedQueue = props.get(&quot;QUEUE_KAFKA_RECEIVED&quot;);
+
+/* Получаем консьюмера из Иницилизации переменных */
+KafkaConsumer&lt;GenericRecord, GenericRecord&gt; consumer = vars.getObject(&quot;GR_consumer_rs&quot;);
+
+/* Получаем сообщения из топика кафки */
+ConsumerRecords&lt;GenericRecord, GenericRecord&gt; records = consumer.poll(Duration.ofMillis(500));
+
+log.info(&quot;-- Consumer_1_Request_topic: Size of records = &quot; + records.size());
+
+/* Обработка всех сообщений полученных из кафки за период */
+for (ConsumerRecord&lt;GenericRecord, GenericRecord&gt; record : records){
+
+	String messageId = record.key();
+	log.info(&quot;-- Consumer_1_Request_topic: Time messageId = &quot; + messageId);
+     
+
+/* Запись значения времени отправки сообщения в mapSent */
+if(!messageId.equals(&quot;&quot;)){
+	Map&lt;String,LocalDateTime&gt; mapSent = props.get(&quot;MAP_SENT&quot;);
+	synchronized(mapSent){
+		mapSent.put(messageId, record.timestamp());
+	}
+//log.info(&quot;Map содержимое = &quot; + mapSent);
+//log.info(&quot;Record value 1 = &quot; + record.key());
+//log.info(&quot;Record value 1 = &quot; + record.value());
+//log.info(&quot;Record timestamp = &quot; + record.timestamp());
+//log.info(&quot;offset = &quot; + record.offset() + &quot;, key = &quot; + record.key());
+     
+//kafkaReceivedQueue.add(new AbstractMap.SimpleEntry&lt;String,LocalDateTime&gt;(record.key(),LocalDateTime.now()) ); //для каждого key из кафки пишется время в мапу
+     
+ //log.info(&quot;kafkaReceivedQueue value = &quot; + kafkaReceivedQueue);
+	}
+}</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+        <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Flow Control Action" enabled="false">
+          <intProp name="ActionProcessor.action">1</intProp>
+          <intProp name="ActionProcessor.target">0</intProp>
+          <stringProp name="ActionProcessor.duration">0</stringProp>
+        </TestAction>
+        <hashTree>
+          <ConstantThroughputTimer guiclass="TestBeanGUI" testclass="ConstantThroughputTimer" testname="Constant Throughput Timer" enabled="true">
+            <doubleProp>
+              <name>throughput</name>
+              <value>1.0</value>
+              <savedValue>0.0</savedValue>
+            </doubleProp>
+            <intProp name="calcMode">0</intProp>
+          </ConstantThroughputTimer>
+          <hashTree/>
+        </hashTree>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="UC04_Consumer_2" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <intProp name="LoopController.loops">-1</intProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">10</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+      </ThreadGroup>
+      <hashTree>
+        <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Настройки сценария" enabled="true">
+          <collectionProp name="Arguments.arguments">
+            <elementProp name="kafka_server_url" elementType="Argument">
+              <stringProp name="Argument.name">kafka_server_url</stringProp>
+              <stringProp name="Argument.value">10.139.177.7:9092</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+              <stringProp name="Argument.desc">URL Kafka</stringProp>
+            </elementProp>
+          </collectionProp>
+        </Arguments>
+        <hashTree/>
+        <OnceOnlyController guiclass="OnceOnlyControllerGui" testclass="OnceOnlyController" testname="UC04_T01_Kafka_Consumer_Props_2" enabled="true"/>
+        <hashTree>
+          <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="UC04_T01_Kafka_Consumer_Props_2" enabled="true">
+            <stringProp name="scriptLanguage">groovy</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="script">import java.io.IOException;
+import java.nio.ByteBuffer;
+import java.util.HashMap;
+import java.util.Map;
+import org.apache.avro.Schema;
+import org.apache.avro.generic.GenericDatumReader;
+import org.apache.avro.generic.GenericRecord;
+import org.apache.avro.io.DatumReader;
+import org.apache.avro.io.Decoder;
+import org.apache.avro.io.DecoderFactory;
+import org.apache.kafka.common.errors.SerializationException;
+import org.apache.kafka.common.serialization.Deserializer;
+import org.apache.kafka.clients.consumer.KafkaConsumer;
+import org.apache.kafka.clients.consumer.ConsumerRecord;
+import org.apache.kafka.clients.consumer.ConsumerRecords;
+import java.time.Duration;
+
+
+    
+
+Properties propsGR = new Properties();
+propsGR.put(&quot;bootstrap.servers&quot;, &quot;${kafka_server_url}&quot;);
+//propsGR.put(&quot;group.id&quot;, &quot;${groupID}&quot;);
+propsGR.put(&quot;group.id&quot;, &quot;test_nt_consumer&quot;); //изменила на test_nt_consumer
+propsGR.put(&quot;enable.auto.commit&quot;, &quot;true&quot;);
+propsGR.put(&quot;auto.commit.interval.ms&quot;, &quot;100&quot;);
+propsGR.put(&quot;key.deserializer&quot;, &quot;org.apache.kafka.common.serialization.StringDeserializer&quot;);
+propsGR.put(&quot;value.deserializer&quot;, &quot;org.apache.kafka.common.serialization.StringDeserializer&quot;);
+//propsGR.put(&quot;value.deserializer&quot;, &quot;org.apache.kafka.common.serialization.ByteArrayDeserializer&quot;);
+//propsGR.put(&quot;key.deserializer&quot;, AvroDeserializer);
+//propsGR.put(&quot;value.deserializer&quot;, AvroDeserializer);
+//propsGR.put(&quot;SCHEMA&quot;, schema ); //добавлено
+
+KafkaConsumer&lt;GenericRecord, GenericRecord&gt; consumer = new KafkaConsumer&lt;&gt;(propsGR);
+consumer.subscribe(Arrays.asList(&quot;popd-sa-response&quot;));
+ConsumerRecords&lt;GenericRecord, GenericRecord&gt; records = consumer.poll(Duration.ofMillis(3000));
+vars.putObject(&quot;GR_consumer_rs&quot;, consumer);
+vars.put(&quot;myVar&quot;, 0.toString());
+Thread thread = Thread.currentThread();
+vars.put(&quot;User&quot;, thread.getName());
+</stringProp>
+          </JSR223Sampler>
+          <hashTree/>
+        </hashTree>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="UC04_T02_Kafka_Consumer_2" enabled="true">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">false</stringProp>
+          <stringProp name="script">import org.apache.kafka.clients.consumer.KafkaConsumer;
+import org.apache.kafka.clients.consumer.ConsumerRecord;
+import org.apache.kafka.clients.consumer.ConsumerRecords;
+import org.apache.avro.generic.GenericRecord;
+import java.time.Duration;
+import java.time.LocalDateTime;
+import java.nio.charset.Charset;
+import java.util.Date;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+
+
+/* Получаем значение kafkaReceivedQueue из Иницилизации переменных*/
+Queue &lt;AbstractMap.SimpleEntry&lt;String, String&gt;&gt; kafkaReceivedQueue = props.get(&quot;QUEUE_KAFKA_RECEIVED&quot;);
+
+/* новое */
+Queue &lt;String&gt; kafkaReceivedQueue_1 = props.get(&quot;QUEUE_KAFKA_RECEIVED_1&quot;);
+
+/* Получаем консьюмера из Иницилизации переменных */
+KafkaConsumer&lt;GenericRecord, GenericRecord&gt; consumer = vars.getObject(&quot;GR_consumer_rs&quot;);
+
+/* Получаем сообщения из топика кафки */
+ConsumerRecords&lt;GenericRecord, GenericRecord&gt; records = consumer.poll(Duration.ofMillis(500));
+
+log.info(&quot;-- Consumer_2_Response_topic: Size of records = &quot; + records.size());
+
+for (ConsumerRecord&lt;GenericRecord, GenericRecord&gt; record : records){
+    	
+    	log.info(&quot;-- Consumer_2_Response_topic: Record key = &quot; + record.key());
+    	//log.info(&quot;Record value = &quot; + record.value());
+    	//log.info(&quot;Record timestamp = &quot; + record.timestamp());
+     //log.info(&quot;offset = &quot; + record.offset() + &quot;, key = &quot; + record.key());
+
+     String regex = &quot;\\w{1,32}-\\w{1,32}-\\w{1,32}-\\w{1,32}-\\w{1,32}&quot;;
+     Pattern pattern = Pattern.compile(regex);
+	Matcher matcher = pattern.matcher(record.value());
+	if (matcher.find()) {
+		String kafkaUUID = matcher.group(0);
+		/* Записываем key - value для каждого сообщения в мапу */
+     	kafkaReceivedQueue_1.add(kafkaUUID);
+	}
+
+     /* Записываем key - timestamp для каждого сообщения в мапу */
+     kafkaReceivedQueue.add(new AbstractMap.SimpleEntry&lt;String,Long&gt;(record.key(), record.timestamp()) );
+     
+     //log.info(&quot;kafkaReceivedQueue value = &quot; + kafkaReceivedQueue);
+}
+</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="UC04_T03_Kafka_Time_and_Influx" enabled="true">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">false</stringProp>
+          <stringProp name="script">import java.time.Duration;
+import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
+import java.time.ZoneOffset;
+import java.util.Collections;
+import org.influxdb.InfluxDB;
+import org.influxdb.InfluxDBFactory;
+import org.influxdb.dto.Point;
+import java.util.concurrent.TimeUnit;
+
+AbstractMap.SimpleEntry kafka_msg;
+
+/* Получаем значение kafkaReceivedQueue из Иницилизации переменных */
+Queue&lt;AbstractMap.SimpleEntry&lt;String,Long&gt;&gt; kafkaReceivedQueue = props.get(&quot;QUEUE_KAFKA_RECEIVED&quot;);
+
+/* Получаем значение mapSent из Иницилизации переменных */
+Map&lt;String,Long&gt; mapSent = props.get(&quot;MAP_SENT&quot;);
+
+/* Коннект к инфлюкс */
+InfluxDB influxDB = InfluxDBFactory.connect(&quot;http://10.139.152.21:8086&quot;, &quot;admin&quot;, &quot;admin&quot;);  
+
+//log.info( &quot;-- Comsumer_2_Response_topic: консьюмер2 до вайла &quot;);
+//log.info( &quot;-- Comsumer_2_Response_topic: kafkaReceivedQueue = &quot; + kafkaReceivedQueue);
+	
+/* Обработка всех сообщений полученных из кафки за период */
+while(kafka_msg = kafkaReceivedQueue.poll()){	
+	log.info( &quot;-- Comsumer_2_Response_topic: Msg found: &quot; + kafka_msg.key);
+	
+	//kafka_msg = kafkaReceivedQueue.poll();
+     String nameRq;
+     String msg = kafka_msg.key;
+
+//     log.info( &quot;-- Comsumer_2_Response_topic: после вайла &quot;);
+	//log.info( &quot;Msg found: &quot;+msg);
+
+	Long sent_time;
+
+	/* Ищем сообщение в таблице отправленных */
+	synchronized(mapSent) {
+		sent_time = mapSent.get(msg);
+	}
+
+	if (msg ==~ /RealtySA.+/ ) {
+		nameRq = &quot;RealtySA&quot;;
+	}
+
+	if (msg ==~ /Delete.+/ ) {
+		nameRq = &quot;Delete&quot;;
+	}
+
+	/* Если нет в таблице отправленных - значит не наше, игнорируем */
+	if( sent_time == null ) 
+		continue;
+
+	/* Определяем время обработки сообщения */
+	//long send_duration = Duration.between(sent_time,kafka_msg.value).toMillis();
+	long send_duration = kafka_msg.value - sent_time;
+		
+     log.info(&apos;Message processed(ALL). SendTime&quot;: &apos; + send_duration);
+		
+     /* Отправляем данные в Influx */
+	Point point = Point.measurement(&quot;popd&quot;) 
+                        .time(${__time(,)},TimeUnit.MILLISECONDS)
+                        .tag(&quot;nameOper&quot;, &quot;KafkaMessage&quot;)
+                        .tag(&quot;nameRq&quot;, &quot;${nameRq}&quot;)
+                        //.tag(&quot;Success&quot;, &quot;${success}&quot;)
+                        .tag(&quot;msg_uuid&quot;, &quot;${msg}&quot;)
+                        .addField(&quot;responseTime&quot;, send_duration)
+                        .addField(&quot;count&quot;, 1)
+                        .build();
+	influxDB.write(&quot;popd&quot;, &quot;autogen&quot;, point);
+} 
+</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="UC04_T04_Redis_Push_UUID" enabled="true">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">true</stringProp>
+          <stringProp name="script">import redis.clients.jedis.Jedis
+import com.google.gson.Gson
+import java.util.Collections;
+
+
+String kafkaUUID_2;
+Queue&lt;String&gt; kafkaReceivedQueue_1 = props.get(&quot;QUEUE_KAFKA_RECEIVED_1&quot;);
+
+/* Коннект к редис */
+Jedis jedis = new Jedis (&quot;${redis_host}&quot;, ${redis_port});
+
+/* Обработка всех сообщений kafkaUUID, полученных из очереди, и запись в редис */
+while(kafkaUUID_2 = kafkaReceivedQueue_1.poll()){	
+	jedis.lpush(&quot;popd_cache&quot;, kafkaUUID_2);
+	log.info(&quot;-- Consumer_2_Response_topic: Send UUID to Redis = &quot; + kafkaUUID_2);
+}
+
+jedis.close();</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+        <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Flow Control Action" enabled="false">
+          <intProp name="ActionProcessor.action">1</intProp>
+          <intProp name="ActionProcessor.target">0</intProp>
+          <stringProp name="ActionProcessor.duration">0</stringProp>
+        </TestAction>
+        <hashTree>
+          <ConstantThroughputTimer guiclass="TestBeanGUI" testclass="ConstantThroughputTimer" testname="Constant Throughput Timer" enabled="true">
+            <doubleProp>
+              <name>throughput</name>
+              <value>1.0</value>
+              <savedValue>0.0</savedValue>
+            </doubleProp>
+            <intProp name="calcMode">0</intProp>
+          </ConstantThroughputTimer>
+          <hashTree/>
+        </hashTree>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>
