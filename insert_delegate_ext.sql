@@ -21,3 +21,9 @@ values ('f9353f83-2b24-46f3-b542-e40ea4a46e0b', 'ORG_DELEGATE', 'CM_ESPP_REGISTE
         '{}'::jsonb),
        ('f9353f83-2b24-46f3-b542-e40ea4a46e0b', 'ORG_DELEGATE', 'CM_ESPP_REGISTER_ACT', 'CM_ESPP_REGISTER_HISTORY',
         '{}'::jsonb);
+
+insert into cm_o_espp_bill(id, cft_id, branch_code, created, type, status, file_id, filename, file_size, file_ready,
+                           hash, error)
+VALUES ('00000000-eeee-0000-0000-000000000000', '44613642216', '3500', now(), 2, 1,
+        '00000000-ffff-0000-0000-000000000000',
+        'file_1.txt', 10, true, 'hashhhh', null);
