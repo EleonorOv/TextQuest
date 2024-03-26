@@ -27,3 +27,6 @@ insert into cm_o_espp_bill(id, cft_id, branch_code, created, type, status, file_
 VALUES ('00000000-eeee-0000-0000-000000000000', '44613642216', '3500', now(), 2, 1,
         '00000000-ffff-0000-0000-000000000000',
         'file_1.txt', 10, true, 'hashhhh', null);
+userId: fc6f0f8f-021e-48f2-9cb6-f7a88976eedb
+
+clientId: d81e3ebd-38cb-4e88-b251-8226e6d6dd8c
